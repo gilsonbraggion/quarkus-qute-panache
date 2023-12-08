@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+{#include header.html}{/include}
+
+{#include menu.html}{/include}
+
+<body>
+
+	<h3 class="text-center">Listagem de pessoas</h3>
+
+	<div class="container-fluid">
+		<table class="table table-responsive table-bordered table-striped ">
+			<thead>
+				<tr>
+					<td>Id</td>
+					<td>Nome</td>
+					<td>Idade</td>
+					<td>Sexo</td>
+					<td>Opções</td>
+				</tr>
+			</thead>
+
+			<tbody>
+				{#for pess in listagem}
+				<tr>
+					<td>{pess.id}</td>
+					<td>{pess.nome}</td>
+					<td>{pess.idade}</td>
+					<td>{pess.sexo.descricao}</td>
+					<td><a href="/pessoa/editar/{pess.id}"> Editar </a></td>
+				</tr>
+				{/for}
+			</tbody>
+		</table>
+
+		<p />
+
+		<a href="/pessoa/novo" class="btn btn-primary" role="button">Criar pessoa</a>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+{#include header.html}{/include}
+
+{#include menu.html}{/include}
+
+<body>
+	<div class="container-fluid">
+		<h3>Salvar Pessoa</h3>
+
+		<div>
+			<form action="/pessoa/salvar" method="post" >
+
+				<input type="hidden" name="id" value="{pessoa.id}" />
+
+				<div class="row gy-3">
+					<div class="col-sm-4 form-group">
+						<label>Nome</label>
+						<input type="text" name="nome" value="{pessoa.nome}" class="form-control" />
+					</div>
+
+					<div class="col-sm-4 form-group">
+						<label>Idade</label>
+						<input type="number" name="idade" value="{pessoa.idade}" class="form-control" />
+					</div>
+
+					<div class="col-sm-4 form-group">
+						<label>Sexo</label>
+						<select class="form-select" name="sexo">
+							<option value="">Selecione ...</option>
+							<option value="FEMININO" {#if pessoa.sexo.descricao is 'Feminino'} selected="selected" {/if}>Feminino</option>
+							<option value="MASCULINO" {#if pessoa.sexo.descricao is "Masculino"} selected="selected" {/if}>Masculino</option>
+						</select>
+					</div>
+
+					<div class="form-group">
+						<button class="btn btn-primary" type="submit">Salvar</button>
+					</div>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>
